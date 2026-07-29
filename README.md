@@ -25,7 +25,8 @@
 |------|------|
 | 触发方式 | 对 Agent 说「分拆任务」或「减少 token 消耗」即启动 |
 | 智能分级矩阵 | 内置 🟢/🔴 决策表 + 分级铁律，逐项判定子任务归属 |
-| 四步闭环流程 | ①拆分清单 ②规范文件下沉 ③本地批量执行 ④浓缩回传汇总 |
+| 自我进化机制 | ⓪适配评估：机制不适配当前任务时，**先进化机制（新增/修订规则模板）再执行**；进化效果记账，无效即回滚 |
+| 五步闭环流程 | ⓪适配评估 ①拆分清单 ②规范下沉 ③本地批量执行 ④浓缩回传汇总 |
 | 跨领域模板 | 批量数据处理 / 大规模检索比对 / 文档排版誊抄 / 周期分析 / 代码日志审查 |
 | 红线机制 | 诚实红线（禁止隐瞒异常）、安全红线（不碰 secrets）、抽样校验闭环 |
 | 资产沉淀 | 可复用脚本与规范落盘，同类任务复用零成本 |
@@ -68,7 +69,8 @@ Cloud LLMs bill by token, and in real-world tasks 80%+ of tokens are burned on "
 |---------|-------------|
 | Trigger phrases | Say "分拆任务" (task split) or "减少token消耗" (reduce token usage) to activate |
 | Classification matrix | Built-in 🟢/🔴 decision table + iron rules for assigning subtasks |
-| Four-step loop | ①Task breakdown ②Spec file offloaded locally ③Batch local execution ④Condensed upload & cloud synthesis |
+| Self-evolution | ⓪Adaptation check: when the existing split mechanism doesn't fit the task, the skill **evolves its rules/templates first, then executes**; every evolution is scored, and ineffective ones roll back |
+| Five-step loop | ⓪Adapt-check ①Breakdown ②Spec offloaded locally ③Batch local execution ④Condensed upload & cloud synthesis |
 | Cross-domain templates | Batch data processing / large-scale retrieval & diff / document formatting / recurring analysis / codebase & log review |
 | Safety guardrails | Honesty rule (never hide anomalies), security rule (no secrets), sample-verification loop |
 | Asset accumulation | Reusable scripts & specs persist on disk; repeat tasks cost zero |
