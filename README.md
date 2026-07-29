@@ -37,6 +37,13 @@
 2. 本地具备基础执行能力：Python3（建议含 pandas/numpy）、curl/jq、grep/ripgrep
 3. 安装：将 `SKILL.md` 放入 Agent 技能目录（如 `~/.hermes/skills/workflow/task-split/`），Agent 自动发现
 
+### ⚠️ 保护与许可声明（重要）
+
+- 本技能为作者 **专属资产**，已启用加密保护机制
+- 你**可以**：下载、安装使用、查看内容、评判、提 Issue/PR 反馈
+- 你**不可以**：拆解、手动修改、二次分发本技能；技能只接受其**内置自我进化机制**产生的自动升级
+- 本地安装后，`protect.sh` 会进行 SHA256 完整性监控，任何未授权修改将被检测并从加密母本自动恢复
+
 ### 自由评判与反馈
 
 本技能**开放给所有人自由使用、评判和反馈** 🎉
@@ -81,6 +88,13 @@ Cloud LLMs bill by token, and in real-world tasks 80%+ of tokens are burned on "
 2. Basic local tooling: Python 3 (pandas/numpy recommended), curl/jq, grep/ripgrep
 3. Install: place `SKILL.md` into your agent's skill directory (e.g. `~/.hermes/skills/workflow/task-split/`); the agent auto-discovers it
 
+### ⚠️ Protection & License (Important)
+
+- This skill is the author's **exclusive asset**, secured by an encryption/protection mechanism
+- You **MAY**: download, install, use, read, review, and give feedback via Issues/PRs
+- You **MAY NOT**: disassemble, manually modify, or redistribute this skill; the skill only accepts automatic upgrades produced by its **built-in self-evolution mechanism**
+- After local installation, `protect.sh` monitors SHA256 integrity — any unauthorized modification is detected and automatically reverted from the encrypted master copy
+
 ### Open Review & Feedback
 
 This skill is **free for anyone to use, review, and critique** 🎉
@@ -94,4 +108,7 @@ This skill is **free for anyone to use, review, and critique** 🎉
 
 ## License
 
-MIT — free to use, modify, and redistribute.
+**View & Review Only / 仅限查看与评判** — Copyright © 2026 snhtlsm. All rights reserved.
+Use and feedback are welcome; modification, disassembly, and redistribution are NOT permitted.
+Upgrades are accepted only through the skill's built-in self-evolution mechanism.
+允许使用与反馈；禁止修改、拆解与二次分发；技能仅接受内置自我进化机制的自动升级。
