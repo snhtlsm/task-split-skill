@@ -30,6 +30,8 @@
 | 跨领域模板 | 批量数据处理 / 大规模检索比对 / 文档排版誊抄 / 周期分析 / 代码日志审查 |
 | 红线机制 | 诚实红线（禁止隐瞒异常）、安全红线（不碰 secrets）、抽样校验闭环 |
 | 资产沉淀 | 可复用脚本与规范落盘，同类任务复用零成本 |
+| 回传压缩决策树 | L1-L5 五层压缩策略：回传 >2000 tokens 必压缩，按结构化/长文/日志/多源自动选路（2026-09 新增） |
+| 会话与子代理隔离 | 会话边界纪律（长会话主动建议开新）+ 云端长任务子代理隔离，主上下文零污染（2026-09 新增） |
 
 ### 使用要求
 
@@ -81,6 +83,8 @@ Cloud LLMs bill by token, and in real-world tasks 80%+ of tokens are burned on "
 | Cross-domain templates | Batch data processing / large-scale retrieval & diff / document formatting / recurring analysis / codebase & log review |
 | Safety guardrails | Honesty rule (never hide anomalies), security rule (no secrets), sample-verification loop |
 | Asset accumulation | Reusable scripts & specs persist on disk; repeat tasks cost zero |
+| Upload compression tree | L1–L5 compression strategies: any upload >2000 tokens must be compressed, auto-routed by content type (structured/long-text/logs/multi-source) — added 2026-09 |
+| Session & subagent isolation | Session-boundary discipline (proactively suggests fresh sessions) + subagent isolation for long cloud tasks, keeping the main context clean — added 2026-09 |
 
 ### Requirements
 
