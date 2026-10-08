@@ -42,7 +42,7 @@
   - **微信 / 支付宝**：收款码见下方图片
 - **流程**：付款 → 备注你的 GitHub 用户名 → 作者邀请你加入私有仓库 `task-split-skill-pro` → 按仓内 README 安装
 
-![微信支付](pay-wechat.png) ![支付宝](pay-alipay.png)
+![微信支付](pay-wechat.jpg) ![支付宝](pay-alipay.png)
 
 ### 使用要求
 
