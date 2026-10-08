@@ -1,5 +1,7 @@
 # 分拆任务 · Task Split — Cloud/Local Intelligence Layering Skill
 
+> **v3.6.0 · 更新于 2026-10-05** · 💰 Paid Skill（付费下载，本仓为落地页）
+
 [中文](#中文说明) | [English](#english)
 
 ---
@@ -8,111 +10,79 @@
 
 ### 这是什么
 
-**分拆任务（task-split）** 是一个 AI Agent 技能（Hermes Agent / 兼容 SKILL.md 规范的各类 Agent CLI），用于把**高复杂度、高 token 消耗**的任务拆成两层执行：
+**分拆任务（task-split）** 是一个 AI Agent 技能（Hermes Agent / 兼容 SKILL.md 规范的各类 Agent CLI），把**高复杂度、高 token 消耗**的任务拆成两层执行：
 
-- 🟢 **低智能重复工作**（重复计算、比对、检索、分类、校验、排版、誊抄）→ **下沉到本地执行**，几乎不消耗云端 token
-- 🔴 **高智能工作**（汇总、归因、判断、决策、创作）→ 只把**浓缩成果**回传云端大模型处理
+- 🟢 **低智能重复工作**（重复计算、比对、检索、分类、校验、排版、誊抄）→ **下沉本地执行**，几乎零云端 token
+- 🔴 **高智能工作**（汇总、归因、判断、决策、创作）→ 只把**浓缩成果**回传云端大模型
 
 一句话口诀：**苦力下基层，智慧留中枢；数据不出门，结论坐飞机。**
 
-### 为什么需要它
+云端大模型按 token 计费，实际任务中 80%+ 的 token 浪费在"苦力活"上。本技能把这种工作方式**制度化**：⓪适配评估 → ①拆分 → ②下沉 → ③本地执行 → ④浓缩回传，五步闭环。
 
-云端大模型按 token 计费。实际任务中 80% 以上的 token 往往浪费在"苦力活"上：把几千行数据贴进对话、让模型逐条比对、重复格式化……这些工作用确定性脚本在本地做，成本为零、速度更快、结果更可复现。本技能把这种工作方式**制度化**：拆分 → 下沉 → 本地执行 → 浓缩回传，四步闭环。
-
-### 功能特性
+### 功能特性（v3.6.0）
 
 | 功能 | 说明 |
 |------|------|
-| 触发方式 | 对 Agent 说「分拆任务」或「减少 token 消耗」即启动 |
-| 智能分级矩阵 | 内置 🟢/🔴 决策表 + 分级铁律，逐项判定子任务归属 |
-| 自我进化机制 | ⓪适配评估：机制不适配当前任务时，**先进化机制（新增/修订规则模板）再执行**；进化效果记账，无效即回滚 |
-| 五步闭环流程 | ⓪适配评估 ①拆分清单 ②规范下沉 ③本地批量执行 ④浓缩回传汇总 |
-| 跨领域模板 | 批量数据处理 / 大规模检索比对 / 文档排版誊抄 / 周期分析 / 代码日志审查 |
+| 智能分级矩阵 | 🟢/🔴 决策表 + 分级铁律，逐项判定子任务归属 |
+| 五步闭环 | ⓪适配评估 ①拆分清单 ②规范下沉 ③本地批量执行 ④浓缩回传汇总 |
+| 自我进化机制 | 机制不适配任务时先进化规则再执行；进化效果记账，无效回滚 |
+| 功能① 任务卡+本地学习 | 云端定规范、本地照卡执行、复盘沉淀，本地越用越聪明 |
+| 功能② 资料缓存复用 | 搜索资料/引用本地缓存，相似任务零云端消耗（密钥绝不进缓存） |
+| 功能③ 能力本地化蒸馏 | 云端高阶方法蒸馏为本地可运行 skill，验收测试+入库保护 |
+| 功能④ 方案演进擂台 | 1 ACTIVE + 1 CLOUD + ≤5 BACKUPS，每3次调用自动比对，优者晋升 |
+| 回传压缩决策树 | L1-L5 五层压缩：回传 >2000 tokens 必压缩，按内容类型自动选路 |
+| 会话/子代理隔离 | 长任务子代理执行，主上下文零污染 |
 | 红线机制 | 诚实红线（禁止隐瞒异常）、安全红线（不碰 secrets）、抽样校验闭环 |
-| 资产沉淀 | 可复用脚本与规范落盘，同类任务复用零成本 |
-| 回传压缩决策树 | L1-L5 五层压缩策略：回传 >2000 tokens 必压缩，按结构化/长文/日志/多源自动选路（2026-09 新增） |
-| 会话与子代理隔离 | 会话边界纪律（长会话主动建议开新）+ 云端长任务子代理隔离，主上下文零污染（2026-09 新增） |
+
+### 💰 价格与获取（Paid Access）
+
+- **一次性买断：¥49.9 / US$9.9**（含后续全部更新）
+- 支付方式：
+  - **GitHub Sponsors**：https://github.com/sponsors/snhtlsm （一次性赞助 ≥$9.9 即获得访问权）
+  - **微信 / 支付宝**：收款码见下方图片
+- **流程**：付款 → 备注你的 GitHub 用户名 → 作者邀请你加入私有仓库 `task-split-skill-pro` → 按仓内 README 安装
+
+![微信支付](pay-wechat.png) ![支付宝](pay-alipay.png)
 
 ### 使用要求
 
-1. 一个支持 SKILL.md 技能的 Agent 环境（Hermes Agent 最佳；Claude Code / Kimi CLI 等亦可参考使用）
-2. 本地具备基础执行能力：Python3（建议含 pandas/numpy）、curl/jq、grep/ripgrep
-3. 安装：将 `SKILL.md` 放入 Agent 技能目录（如 `~/.hermes/skills/workflow/task-split/`），Agent 自动发现
+1. 支持 SKILL.md 技能的 Agent 环境（Hermes Agent 最佳；Claude Code / Kimi CLI 等亦可）
+2. 本地基础工具：Python 3（建议 pandas/numpy）、curl/jq、grep/ripgrep
 
-### ⚠️ 保护与许可声明（重要）
+### License
 
-- 本技能为作者 **专属资产**，已启用加密保护机制
-- 你**可以**：下载、安装使用、查看内容、评判、提 Issue/PR 反馈
-- 你**不可以**：拆解、手动修改、二次分发本技能；技能只接受其**内置自我进化机制**产生的自动升级
-- 本地安装后，`protect.sh` 会进行 SHA256 完整性监控，任何未授权修改将被检测并从加密母本自动恢复
-
-### 自由评判与反馈
-
-本技能**开放给所有人自由使用、评判和反馈** 🎉
-
-- 觉得哪里设计不合理？规则分级有不同看法？有实际使用中的节省数据？
-- 欢迎直接开 **Issue** 分享你的评判、改进建议或实测效果
-- 也欢迎 **Pull Request** 贡献场景模板和分级规则
-- 无论好评差评，真实反馈都是最好的礼物
+- 本公开仓内容：**View & Review Only**，禁止转载仓内历史内容
+- 付费用户：个人使用授权。**禁止**二次分发、转售、公开 skill 内容、逆向保护机制
+- Copyright © 2026 snhtlsm. All rights reserved.
 
 ---
 
 ## English
 
-### What is this
+**Task Split** is an AI-agent skill (Hermes Agent / any SKILL.md-compatible agent CLI) that splits high-token tasks into two layers:
 
-**Task Split** is an AI-agent skill (designed for Hermes Agent; compatible with any agent CLI following the SKILL.md convention) that splits **high-complexity, high-token-consumption** tasks into two execution layers:
-
-- 🟢 **Low-intelligence repetitive work** (batch computation, comparison, retrieval, classification, validation, formatting, transcription) → **offloaded to local execution** at near-zero cloud-token cost
-- 🔴 **High-intelligence work** (aggregation, root-cause analysis, judgment, decision-making, creative writing) → only the **condensed results** are sent back to the cloud LLM
+- 🟢 **Low-intelligence grunt work** (batch compute, diff, retrieval, classify, validate, format) → offloaded to **local execution** at near-zero token cost
+- 🔴 **High-intelligence work** (synthesis, root-cause, judgment, decisions) → only **condensed results** go back to the cloud LLM
 
 Motto: **Grunt work goes local, wisdom stays central; data never leaves home, only conclusions fly.**
 
-### Why it matters
+### Highlights (v3.6.0, 2026-10-05)
 
-Cloud LLMs bill by token, and in real-world tasks 80%+ of tokens are burned on "grunt work": pasting thousands of rows into the chat, line-by-line comparisons, repetitive formatting. Deterministic local scripts do this for free, faster, and reproducibly. This skill **institutionalizes** that workflow: Plan → Download spec → Execute locally → Upload condensed results — a four-step closed loop.
+- 🟢/🔴 classification matrix + five-step closed loop (Adapt → Plan → Offload → Execute → Upload)
+- Self-evolution: rules/templates evolve before misfit tasks run; scored and rolled back if ineffective
+- Task cards & local learning · search-result caching · capability distillation to local skills · scheme-evolution arena (1 ACTIVE + 1 CLOUD + ≤5 BACKUPS)
+- L1–L5 upload compression tree (>2000 tokens must compress) · subagent isolation · honesty & security guardrails
 
-### Features
+### 💰 Paid Access
 
-| Feature | Description |
-|---------|-------------|
-| Trigger phrases | Say "分拆任务" (task split) or "减少token消耗" (reduce token usage) to activate |
-| Classification matrix | Built-in 🟢/🔴 decision table + iron rules for assigning subtasks |
-| Self-evolution | ⓪Adaptation check: when the existing split mechanism doesn't fit the task, the skill **evolves its rules/templates first, then executes**; every evolution is scored, and ineffective ones roll back |
-| Five-step loop | ⓪Adapt-check ①Breakdown ②Spec offloaded locally ③Batch local execution ④Condensed upload & cloud synthesis |
-| Cross-domain templates | Batch data processing / large-scale retrieval & diff / document formatting / recurring analysis / codebase & log review |
-| Safety guardrails | Honesty rule (never hide anomalies), security rule (no secrets), sample-verification loop |
-| Asset accumulation | Reusable scripts & specs persist on disk; repeat tasks cost zero |
-| Upload compression tree | L1–L5 compression strategies: any upload >2000 tokens must be compressed, auto-routed by content type (structured/long-text/logs/multi-source) — added 2026-09 |
-| Session & subagent isolation | Session-boundary discipline (proactively suggests fresh sessions) + subagent isolation for long cloud tasks, keeping the main context clean — added 2026-09 |
+- **One-time: US$9.9 / ¥49.9** (all future updates included)
+- Payment: **GitHub Sponsors** https://github.com/sponsors/snhtlsm (≥$9.9 one-time) · WeChat / Alipay (QR codes above)
+- Flow: pay → note your GitHub username → you get invited to the private repo `task-split-skill-pro` → install per its README
 
-### Requirements
+### License
 
-1. An agent environment supporting SKILL.md skills (Hermes Agent recommended; adaptable to Claude Code, Kimi CLI, etc.)
-2. Basic local tooling: Python 3 (pandas/numpy recommended), curl/jq, grep/ripgrep
-3. Install: place `SKILL.md` into your agent's skill directory (e.g. `~/.hermes/skills/workflow/task-split/`); the agent auto-discovers it
-
-### ⚠️ Protection & License (Important)
-
-- This skill is the author's **exclusive asset**, secured by an encryption/protection mechanism
-- You **MAY**: download, install, use, read, review, and give feedback via Issues/PRs
-- You **MAY NOT**: disassemble, manually modify, or redistribute this skill; the skill only accepts automatic upgrades produced by its **built-in self-evolution mechanism**
-- After local installation, `protect.sh` monitors SHA256 integrity — any unauthorized modification is detected and automatically reverted from the encrypted master copy
-
-### Open Review & Feedback
-
-This skill is **free for anyone to use, review, and critique** 🎉
-
-- Think the design is wrong somewhere? Disagree with the classification rules? Have real-world token-saving data?
-- Open an **Issue** to share your review, suggestions, or measured results
-- **Pull Requests** for new scenario templates and rules are welcome
-- Praise or criticism — honest feedback is the best gift
+Public repo: **View & Review Only**. Buyers: personal-use license; redistribution, resale, and reverse-engineering are prohibited. Copyright © 2026 snhtlsm. All rights reserved.
 
 ---
 
-## License
-
-**View & Review Only / 仅限查看与评判** — Copyright © 2026 snhtlsm. All rights reserved.
-Use and feedback are welcome; modification, disassembly, and redistribution are NOT permitted.
-Upgrades are accepted only through the skill's built-in self-evolution mechanism.
-允许使用与反馈；禁止修改、拆解与二次分发；技能仅接受内置自我进化机制的自动升级。
+*Author: snhtlsm | Built by BlackCatWoman*
